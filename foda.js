@@ -19,12 +19,13 @@ addProduct(producto){
             return console.error('Rellene los campos, por favor.');
         }
         else
-        if (elemento.codigo = producto.codigo) {
+        if (elemento.codigo === producto.codigo) {
             return console.error('Ese producto ya existe');
         }
     }
     producto.id = ProductManager.nroid;
     ProductManager.nroid ++;
+    this.productos.push(producto);
     return this.productos;
     }
 
