@@ -1,0 +1,18 @@
+
+[{"id":"Ropa",
+"codigo":"001",
+"titulo":"Camisa de verano",
+"descripcion":"Es una camisa de algodon.",
+"precio":5000,
+"imagen":0,
+"stock":15},
+
+{"id":"Ropa",
+"codigo":"002",
+"titulo":"Remera de verano",
+"descripcion":"Es una remera de algodon",
+"precio":2000,
+"imagen":0,
+"stock":15}
+
+]
