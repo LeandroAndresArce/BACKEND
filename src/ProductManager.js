@@ -1,4 +1,6 @@
-const fs = require("fs")
+/*const fs = require("fs")*/
+
+import fs from 'fs';
 
 class ProductManager {
 
@@ -33,8 +35,8 @@ addProduct = async (id, codigo, titulo, descripcion, precio, imagen, stock) => {
 
 getProducts = async () => {
     let result = await fs.promises.readFile(this.filename)
-    let parsedRes = await JSON.parse(result)
-    console.log(parsedRes)
+    this.productos = await JSON.parse(result)
+    console.log(this.productos)
     return this.productos;
 }
 
@@ -44,12 +46,12 @@ getProductsById = async (id) => {
     let parsedRes = await JSON.parse(result)
 
     const filteredArr = parsedRes.find(
-        (productos) => productos.prodId == id
+        (productos) => productos.id == id
     ) 
         return filteredArr ? filteredArr : ''
 }
 
-updateProductById = async(id, updatedData) =>{
+updateProductsById = async(id, updatedData) =>{
     let result = await fs.promises.readFile(this.name)
     let parsedRes = await JSON.parse(result)
 
@@ -63,7 +65,7 @@ updateProductById = async(id, updatedData) =>{
         }
     }
 
-deleteProductById = async (id) =>{
+deleteProductsById = async (id) =>{
     let result= await fs.promises.readFile(this.filename)
     let parsedRes = await JSON.parse(result)
     

@@ -1,8 +1,9 @@
 {
-  "name": "foda-backend",
+  "name": "App.js",
   "version": "1.0.0",
   "description": "",
-  "main": "foda.js",
+  "main": "./src/App.js",
+  "type" : "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
