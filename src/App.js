@@ -1,30 +1,17 @@
 import express from 'express';
-import ProductManager from './ProductManager';
-import fs from 'fs';
+import Productsrouter from '../src/Routes/Products-Router'
+import cartRouter from '../src/Routes/Cart-Router'
 
 const app = express()
 const PORT = 8000
-const pm1 = new ProductManager('/products.json')
 
-app.listen (PORT, () => {
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.use('/api/products', Productsrouter)
+app.use('/api/carts', cartRouter)
+
+app.listen(PORT, ()=>{
     console.log(`Listening on port ${PORT}`)
-})
 
-app.get('/products', async (req, res) => {
-    const products = await pm1.getProducts()
-    if (req.query.limit) {
-        res.send(products.slice(0, req.query.limit))
-    }  else {
-        res.send(products)
-    }
-})
-
-app.get('/product/:pid', async (req ,res) => {
-    const product = await pm1.getProductById(req.params.pid)
-    console.log(product)
-    if (product){
-        res.send(product)
-    } else {
-        res.send ({msg: `Product ID ${req.params.pid} not found`})
-    }
 })

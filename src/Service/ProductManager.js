@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 
-class ProductManager {
+export default class ProductManager {
 
     static nroid = 1;
 
